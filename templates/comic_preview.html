@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - ComicCraft AI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .comic {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .panel {
+            background: white;
+            margin: 25px 0;
+            padding: 20px;
+            border: 2px solid #222;
+            border-radius: 10px;
+        }
+
+        .panel img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        .dialogue,
+        .narration {
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .dialogue {
+            font-weight: bold;
+        }
+
+        .actions {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="comic">
+
+    <h1>{{ title }}</h1>
+
+    {% for panel in panels %}
+    <div class="panel">
+
+        <h2>Panel {{ panel.panel_number }}</h2>
+
+        {% if panel.image_url %}
+        <img src="{{ panel.image_url }}" alt="Comic panel {{ panel.panel_number }}">
+        {% endif %}
+
+        {% if panel.narration %}
+        <div class="narration">
+            <strong>Narration:</strong>
+            {{ panel.narration }}
+        </div>
+        {% endif %}
+
+        {% if panel.dialogue %}
+        <div class="dialogue">
+            {{ panel.dialogue }}
+        </div>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+
+    <div class="actions">
+        <a class="button" href="/export-success">Export Comic</a>
+    </div>
+
+</div>
+
+</body>
+</html>

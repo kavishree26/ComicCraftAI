@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Exported - ComicCraft AI</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 60px;">
+
+    <h1>🎉 Comic Exported Successfully!</h1>
+
+    <p>Your comic PDF has been created.</p>
+
+    {% if pdf_url %}
+        <p>
+            <a href="{{ pdf_url }}" target="_blank">
+                📄 Download / Open PDF
+            </a>
+        </p>
+    {% endif %}
+
+    <p>
+        <a href="/">← Create Another Comic</a>
+    </p>
+
+</body>
+</html>
